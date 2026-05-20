@@ -10,11 +10,17 @@ export default function CartItemRow({
     const modifierText =
         item.modifiers && Object.keys(item.modifiers).length > 0
             ? Object.entries(item.modifiers)
+                // .filter(([key, value]) => {
+                //     if ((key === "addOns" || key === "removals") && Array.isArray(value)) {
+                //         return value.length > 0;
+                //     }
+
+                //     return value !== null && value !== undefined && value !== "";
+                // })
                 .map(([key, value]) => {
                     if (Array.isArray(value)) {
                         return `${key}: ${value.join(", ")}`;
                     }
-
                     return `${key}: ${value}`;
                 })
                 .join(" • ")

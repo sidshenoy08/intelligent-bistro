@@ -6,12 +6,12 @@ import {
     KeyboardAvoidingView,
     Platform,
     Pressable,
-    SafeAreaView,
     StyleSheet,
     Text,
     TextInput,
-    View,
+    View
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { fetchMenu, sendOrderMessage } from "../src/api/bistroApi";
 import ChatBubble from "../src/components/ChatBubble";
 import { useCartStore } from "../src/store/cartStore";

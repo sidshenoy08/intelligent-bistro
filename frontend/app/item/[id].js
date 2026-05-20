@@ -7,7 +7,7 @@ import {
     ScrollView,
     StyleSheet,
     Text,
-    View,
+    View
 } from "react-native";
 import { fetchMenu } from "../../src/api/bistroApi";
 import { useCartStore } from "../../src/store/cartStore";

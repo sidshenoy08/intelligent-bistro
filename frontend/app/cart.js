@@ -1,12 +1,13 @@
 import { useRouter } from "expo-router";
-import { FlatList, Pressable, SafeAreaView, Text, View } from "react-native";
+import { FlatList, Pressable, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import CartItemRow from "../src/components/CartItemRow";
 import { useCartStore } from "../src/store/cartStore";
 import {
     formatCurrency,
     getCartSubtotal,
     getCartTax,
-    getCartTotal,
+    getCartTotal
 } from "../src/utils/priceUtils";
 
 export default function CartScreen() {
@@ -23,28 +24,36 @@ export default function CartScreen() {
 
     if (cart.length === 0) {
         return (
-            <SafeAreaView className="flex-1 items-center justify-center bg-gray-50 px-7">
-                <Text className="text-6xl">🛒</Text>
-                <Text className="mt-4 text-3xl font-black text-bistro-dark">
-                    Your cart is empty
-                </Text>
-                <Text className="mt-3 text-center leading-6 text-gray-500">
-                    Add items from the menu or ask the AI assistant to build your order.
-                </Text>
+            <SafeAreaView className="flex-1 bg-gray-50">
+                <View className="flex-1 items-center justify-center px-7">
+                    <View className="w-full max-w-sm items-center">
+                        <Text className="text-center text-3xl font-black text-bistro-dark">
+                            Your cart is empty
+                        </Text>
 
-                <Pressable
-                    className="mt-7 rounded-2xl bg-bistro-dark px-7 py-4 active:scale-95"
-                    onPress={() => router.push("/")}
-                >
-                    <Text className="font-black text-white">Browse Menu</Text>
-                </Pressable>
+                        <Text className="mt-3 text-center text-base leading-6 text-gray-500">
+                            Add items from the menu or ask the AI assistant to build your order.
+                        </Text>
 
-                <Pressable
-                    className="mt-3 rounded-2xl bg-gray-100 px-7 py-4 active:scale-95"
-                    onPress={() => router.push("/assistant")}
-                >
-                    <Text className="font-black text-bistro-dark">Ask AI Assistant</Text>
-                </Pressable>
+                        <Pressable
+                            className="mt-8 w-56 rounded-2xl bg-bistro-dark py-3.5 active:scale-95"
+                            onPress={() => router.push("/")}
+                        >
+                            <Text className="text-center text-base font-black text-white">
+                                Browse Menu
+                            </Text>
+                        </Pressable>
+
+                        <Pressable
+                            className="mt-3 w-56 rounded-2xl bg-gray-100 py-3.5 active:scale-95"
+                            onPress={() => router.push("/assistant")}
+                        >
+                            <Text className="text-center text-base font-black text-bistro-dark">
+                                Ask AI Assistant
+                            </Text>
+                        </Pressable>
+                    </View>
+                </View>
             </SafeAreaView>
         );
     }

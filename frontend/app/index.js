@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import {
     ActivityIndicator,
     Pressable,
-    SafeAreaView,
     ScrollView,
     Text,
     View,
